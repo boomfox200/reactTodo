@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import Header from "./components/Header";
 import SubmitBlock from "./components/SubmitBlock";
 import TodoList from "./components/TodoBlock/TodoList";
-import "./App.css";
+import "./App.scss";
 
 function App() {
   const [todoList, setTodoList] = useState([]);

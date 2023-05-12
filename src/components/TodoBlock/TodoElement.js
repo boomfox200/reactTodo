@@ -1,5 +1,5 @@
 import { useState } from "react";
-import style from "./TodoElement.module.css";
+import style from "./TodoElement.module.scss";
 
 function TodoElement({ todoElement, index, deleteTodo }) {
   const [isElementStyle, setIsElementStyle] = useState(style.todoElement);

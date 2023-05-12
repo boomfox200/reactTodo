@@ -1,4 +1,4 @@
-import style from "./TodoList.module.css";
+import style from "./TodoList.module.scss";
 import TodoElement from "./TodoElement";
 
 function TodoList({ todoElements, deleteTodo }) {

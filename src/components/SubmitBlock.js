@@ -1,5 +1,5 @@
 import { useState } from "react";
-import style from "./SubmitBlock.module.css";
+import style from "./SubmitBlock.module.scss";
 
 function SubmitBlock({ addTodo }) {
   const [text, setText] = useState("");
