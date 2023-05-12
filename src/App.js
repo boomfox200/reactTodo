@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import Header from "./components/Header";
-import SubmitBlock from "./components/SubmitBlock";
+import Header from "./components/Header/Header";
+import SubmitBlock from "./components/SubmitBlock/SubmitBlock";
 import TodoList from "./components/TodoBlock/TodoList";
 import "./App.scss";
+import FunctionBlock from "./components/FunctionBlock/FunctionBlock";
 
 function App() {
   const [todoList, setTodoList] = useState([]);
@@ -18,7 +19,15 @@ function App() {
     setTodoList([...todoList, newTodoList]);
   };
 
-  const deleteTodo = (index) => {
+  const deleteTodoDoneHandler = () => {
+    setTodoList(todoList.filter((todoElement) => todoElement.isDone === false));
+  };
+
+  const deleteTodoAllHandler = () => {
+    setTodoList([]);
+  };
+
+  const deleteTodoHandler = (index) => {
     setTodoList(todoList.filter((todoElement) => todoElement.id !== index));
   };
 
@@ -26,7 +35,8 @@ function App() {
     <div className="App">
       <Header />
       <SubmitBlock addTodo={addTodo} />
-      <TodoList todoElements={todoList} deleteTodo={deleteTodo} />
+      <FunctionBlock deleteTodoDone={deleteTodoDoneHandler} deleteTodoAll={deleteTodoAllHandler} />
+      <TodoList todoElements={todoList} deleteTodo={deleteTodoHandler} />
     </div>
   );
 }

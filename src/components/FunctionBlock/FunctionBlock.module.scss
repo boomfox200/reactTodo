@@ -1,0 +1,24 @@
+.functionBlock {
+}
+
+.buttonDeleteDone,
+.buttonDeleteAll {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttonDeleteDone {
+  margin-right: 10px;
+}
+
+.buttonDeleteAll {
+  margin-left: 10px;
+}
