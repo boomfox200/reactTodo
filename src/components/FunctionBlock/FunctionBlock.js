@@ -12,10 +12,10 @@ function FunctionBlock({deleteTodoDone, deleteTodoAll}) {
   return (
     <div className={style.functionBlock}>
       <button className={style.buttonDeleteDone} onClick={deleteDone}>
-        Delete Done
+        Delete Done tasks
       </button>
       <button className={style.buttonDeleteAll} onClick={deleteAll}>
-        Delete All
+        Delete All tasks
       </button>
     </div>
   );
