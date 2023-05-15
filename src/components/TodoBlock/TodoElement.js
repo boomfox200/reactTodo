@@ -1,20 +1,13 @@
 import { useState } from "react";
+import { statusList } from "../../data/statusList";
 import style from "./TodoElement.module.scss";
 
 function TodoElement({ todoElement, index, deleteTodo }) {
   const [isElementStyle, setIsElementStyle] = useState(style.todoElement);
-  const [isDoneText, setIsDoneText] = useState("Done");
 
-  const handleDone = () => {
-    if (isElementStyle === style.todoElement) {
-      setIsElementStyle(style.todoElementDone);
-      setIsDoneText("Undone");
-      todoElement.isDone = true;
-    } else {
-      setIsElementStyle(style.todoElement);
-      setIsDoneText("Done");
-      todoElement.isDone = false;
-    }
+  const handleSelect = (elem) => {
+    todoElement.statusTask = elem.target.value;
+    setIsElementStyle(style[elem.target.value]);
   };
 
   const handleDelete = () => {
@@ -25,9 +18,13 @@ function TodoElement({ todoElement, index, deleteTodo }) {
     <div className={isElementStyle}>
       <div className={style.todoText}>{todoElement.text}</div>
       <div>
-        <button className={style.buttonDone} onClick={handleDone}>
-          {isDoneText}
-        </button>
+        <select className={style.selectStatus} onChange={handleSelect}>
+          {statusList.map((status) => (
+            <option key={status.value} value={status.value}>
+              {status.label}
+            </option>
+          ))}
+        </select>
         <button className={style.buttonDelete} onClick={handleDelete}>
           Delete
         </button>
