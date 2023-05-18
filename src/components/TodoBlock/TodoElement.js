@@ -1,13 +1,11 @@
-import { useState } from "react";
 import { statusList } from "../../data/statusList";
 import style from "./TodoElement.module.scss";
 
-function TodoElement({ todoElement, index, deleteTodo }) {
-  const [isElementStyle, setIsElementStyle] = useState(style.todoElement);
+function TodoElement({ todoElement, index, deleteTodo, refreshTodoStatus }) {
 
   const handleSelect = (elem) => {
     todoElement.statusTask = elem.target.value;
-    setIsElementStyle(style[elem.target.value]);
+    refreshTodoStatus(todoElement);
   };
 
   const handleDelete = () => {
@@ -15,10 +13,10 @@ function TodoElement({ todoElement, index, deleteTodo }) {
   };
 
   return (
-    <div className={isElementStyle}>
+    <div className={style[todoElement.statusTask]}>
       <div className={style.todoText}>{todoElement.text}</div>
       <div>
-        <select className={style.selectStatus} onChange={handleSelect}>
+        <select className={style.selectStatus} value={todoElement.statusTask} onChange={handleSelect}>
           {statusList.map((status) => (
             <option key={status.value} value={status.value}>
               {status.label}
