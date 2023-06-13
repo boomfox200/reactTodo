@@ -28,5 +28,5 @@ function FilterBlock({ todoElements, selectFilterHandler }) {
     </div>
   );
 }
-
+//test commit
 export default FilterBlock;
